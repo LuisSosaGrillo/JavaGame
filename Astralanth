@@ -1,0 +1,97 @@
+// Astralanth.java
+public class Astralanth {
+    public static void main(String[] args) {
+        // Create the factions
+        Faction orderOfLuminas = new Faction("Order of Luminas", "Valoria", "Guardians of justice and honor, dedicated to preserving peace and unity.");
+        Faction shadowCovenant = new Faction("Shadow Covenant", "Umbravale", "Secretive and strategic, valuing cunning, stealth, and knowledge.");
+        Faction skybornCouncil = new Faction("Skyborn Council", "Zephyros", "Custodians of magical knowledge and elemental balance.");
+        Faction infernalLegion = new Faction("Infernal Legion", "Ignisar", "Fierce warriors and master smiths, bound by a code of strength, honor, and resilience.");
+        Faction tideguardAlliance = new Faction("Tideguard Alliance", "Aquara", "Protectors of oceanic realms, expert navigators, treasure hunters, and diplomats of the depths.");
+        Faction frostwardClan = new Faction("Frostward Clan", "Everfrost", "Proud and resilient survivors thriving in harsh climates.");
+        Faction circleOfEldara = new Faction("Circle of Eldara", "Eldara", "Mystical defenders of nature, harmony, and balance.");
+
+        // Create the zones
+        Zone valoria = new Zone("Valoria", "The Eternal Kingdom", "Lush, fertile plains, majestic castles, thriving medieval-inspired cities.");
+        Zone zephyros = new Zone("Zephyros", "Isles of the Sky", "Floating islands, crystal cliffs, magical sky rivers.");
+        Zone umbravale = new Zone("Umbravale", "Shadowlands", "Gloomy forests, mist-shrouded ruins, cursed marshes.");
+        Zone ignisar = new Zone("Ignisar", "Scorched Dominion", "Volcanic wastelands, magma rivers, fiery caves.");
+        Zone aquara = new Zone("Aquara", "The Abyssal Realm", "Underwater cities, coral reefs, bioluminescent caverns.");
+        Zone everfrost = new Zone("Everfrost", "Realm of Ice", "Frozen tundra, ice-crowned mountains, glacial valleys.");
+        Zone eldara = new Zone("Eldara", "Mystic Wilds", "Enchanted forests, magical springs, ancient trees.");
+
+        // Set factions in respective zones
+        valoria.setFaction(orderOfLuminas);
+        zephyros.setFaction(skybornCouncil);
+        umbravale.setFaction(shadowCovenant);
+        ignisar.setFaction(infernalLegion);
+        aquara.setFaction(tideguardAlliance);
+        everfrost.setFaction(frostwardClan);
+        eldara.setFaction(circleOfEldara);
+
+        // Display information about each zone
+        valoria.displayZoneInfo();
+        zephyros.displayZoneInfo();
+        umbravale.displayZoneInfo();
+        ignisar.displayZoneInfo();
+        aquara.displayZoneInfo();
+        everfrost.displayZoneInfo();
+        eldara.displayZoneInfo();
+    }
+}
+
+// Zone.java
+class Zone {
+    private String name;
+    private String title;
+    private String environment;
+    private Faction faction;
+
+    public Zone(String name, String title, String environment) {
+        this.name = name;
+        this.title = title;
+        this.environment = environment;
+    }
+
+    public void setFaction(Faction faction) {
+        this.faction = faction;
+    }
+
+    public void displayZoneInfo() {
+        System.out.println("Zone: " + name + " - " + title);
+        System.out.println("Environment: " + environment);
+        System.out.println("Home Faction: " + (faction != null ? faction.getName() : "None"));
+        System.out.println();
+    }
+}
+
+// Faction.java
+class Faction {
+    private String name;
+    private String homeZone;
+    private String description;
+
+    public Faction(String name, String homeZone, String description) {
+        this.name = name;
+        this.homeZone = homeZone;
+        this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getHomeZone() {
+        return homeZone;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void displayFactionInfo() {
+        System.out.println("Faction: " + name);
+        System.out.println("Home Zone: " + homeZone);
+        System.out.println("Description: " + description);
+        System.out.println();
+    }
+}
